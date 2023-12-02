@@ -1,0 +1,13 @@
+.custom-card {
+    background-color: #d7dde4;
+  margin: 5px;
+  border-color: #ccc;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+
