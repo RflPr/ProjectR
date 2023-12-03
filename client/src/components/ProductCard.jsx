@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 const ProductCard = ({ product }) => {
   return (
-    <Card className='custom-card' style={{ width: '18rem', margin: '5px' }}>
+    <Card className='custom-card' >
       <Card.Body>
         <Card.Text>Nome: {product.name}</Card.Text>
         <Card.Text>Preço: ${product.price}</Card.Text>

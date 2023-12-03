@@ -1,16 +1,15 @@
 .center-container-edit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
   justify-content: center;
+
 }
 .product-list-edit{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 .product-list-edit button {
     margin-top: 10px;

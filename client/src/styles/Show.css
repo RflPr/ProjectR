@@ -1,17 +1,15 @@
 .center-container-show {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    /* Ocupa 100% da altura da viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
 }
 
 
 .product-list-show {
     display: flex;
     list-style: none;
-    padding: 0;
     align-items: center;
 }
 
