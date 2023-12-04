@@ -8,8 +8,10 @@
 
 
 .product-list-show {
-    display: flex;
-    list-style: none;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  
 }
-
+.card-body{
+  height: 20%;
+}

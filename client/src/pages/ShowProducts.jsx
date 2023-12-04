@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ProductCard from '../components/ProductCard';
+
 import { getAuth, signOut } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 const ShowProducts = () => {
   const auth = getAuth();
@@ -53,13 +54,28 @@ const ShowProducts = () => {
       {!loading && (
         <>
           <button onClick={handleLogout}>Logout</button>
-          <ul className="product-list-show">
+          <div className="product-list-show">
             {products.map((product) => (
-              <li key={product.id}>
-                <ProductCard product={product} />
-              </li>
+              <Card className="custom-card">
+                <Card.Body>
+              
+              <div className="product-list-show">
+            <label>Nome:</label>
+            {product.name}
+          </div>
+          <div className="product-list-show">
+            <label>Preço:</label>
+            {product.price}
+          </div>
+          <div className="product-list-show">
+            <label>Descrição:</label>
+            {product.description}
+          </div>
+                
+                
+              </Card.Body></Card>
             ))}
-          </ul>
+          </div>
         </>
       )}
       {loggedOut && <Navigate to="/" />}
