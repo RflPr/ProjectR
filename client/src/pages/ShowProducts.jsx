@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-import { getAuth, signOut } from 'firebase/auth';
-import { Navigate } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { getAuth, signOut } from "firebase/auth";
+import { Navigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 const ShowProducts = () => {
   const auth = getAuth();
@@ -15,11 +15,13 @@ const ShowProducts = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/show-products');
+        const response = await axios.get("http://localhost:5000/show-products");
         setProducts(response.data);
       } catch (error) {
-        console.error('Erro ao buscar produtos:', error);
-        alert('Erro ao buscar produtos. Consulte o console para obter detalhes.');
+        console.error("Erro ao buscar produtos:", error);
+        alert(
+          "Erro ao buscar produtos. Consulte o console para obter detalhes."
+        );
       } finally {
         // Simulando um atraso de 1 segundo antes de parar de mostrar "Carregando..."
         setTimeout(() => {
@@ -37,8 +39,8 @@ const ShowProducts = () => {
       await signOut(auth);
       setLoggedOut(true);
     } catch (error) {
-      console.error('Erro ao fazer logout:', error);
-      alert('Erro ao fazer logout. Consulte o console para obter detalhes.');
+      console.error("Erro ao fazer logout:", error);
+      alert("Erro ao fazer logout. Consulte o console para obter detalhes.");
     } finally {
       // Simulando um atraso de 1 segundo antes de parar de mostrar "Carregando..."
       setTimeout(() => {
@@ -54,26 +56,24 @@ const ShowProducts = () => {
       {!loading && (
         <>
           <button onClick={handleLogout}>Logout</button>
-          <div className="product-list-show">
+          <div className="product-list-hor">
             {products.map((product) => (
               <Card className="custom-card">
                 <Card.Body>
-              
-              <div className="product-list-show">
-            <label>Nome:</label>
-            {product.name}
-          </div>
-          <div className="product-list-show">
-            <label>Preço:</label>
-            {product.price}
-          </div>
-          <div className="product-list-show">
-            <label>Descrição:</label>
-            {product.description}
-          </div>
-                
-                
-              </Card.Body></Card>
+                  <div className="product-list-show">
+                    <label>Nome:</label>
+                    {product.name}
+                  </div>
+                  <div className="product-list-show">
+                    <label>Preço:</label>
+                    {product.price}
+                  </div>
+                  <div className="product-list-show">
+                    <label>Descrição:</label>
+                    {product.description}
+                  </div>
+                </Card.Body>
+              </Card>
             ))}
           </div>
         </>

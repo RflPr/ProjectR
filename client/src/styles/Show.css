@@ -9,7 +9,12 @@
 
 .product-list-show {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  
+}
+.product-list-hor {
+  display: flex;
+  flex-direction: row;
   
 }
 .card-body{
