@@ -7,8 +7,11 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import auth from "./firebase";
+// import { useAuth } from './AuthContext';
 
 const LoginCadastro = () => {
+  // const { signIn } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
