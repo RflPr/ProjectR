@@ -35,15 +35,30 @@ app.delete('/delete-product/:id', async (req, res) => {
 // Editar produto
 app.put('/edit-product/:id', async (req, res) => {
   try {
+    console.log('Rota de edição alcançada');
     const productId = req.params.id;
-    const { newProductName } = req.body;
-    await Product.update({ name: newProductName }, { where: { id: productId } });
+    const { newProductName, newProductPrice, newProductDescription } = req.body;
+    console.log('ID do produto:', productId);
+    console.log('Novo nome do produto:', newProductName);
+    console.log('Novo preço do produto:', newProductPrice);
+    console.log('Nova descrição do produto:', newProductDescription);
+
+    await Product.update(
+      {
+        name: newProductName,
+        price: newProductPrice,
+        description: newProductDescription,
+      },
+      { where: { id: productId } }
+    );
+
     res.send('Produto editado com sucesso!');
   } catch (error) {
     console.error('Erro ao editar produto:', error);
     res.status(500).send('Erro ao editar produto. Consulte o console para obter detalhes.');
   }
 });
+
 
 // Mostrar todos os produtos
 app.get('/show-products', async (req, res) => {
