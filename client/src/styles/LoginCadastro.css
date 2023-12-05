@@ -1,0 +1,21 @@
+.center-container-logincadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    
+    /* Ocupa 100% da altura da viewport */
+}
+
+
+.product-list-logincadastro {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    
+}
+.product-list-logincadastro button {
+   margin-top: 10px;
+    
+}

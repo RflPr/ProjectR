@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { getAuth, signOut } from "firebase/auth";
+
 import { Navigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const ShowProducts = () => {
-  const auth = getAuth();
+  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);

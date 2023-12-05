@@ -2,6 +2,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Card.css';
+import './styles/LoginCadastro.css';
 import './styles/Add.css';
 import './styles/Edit.css';
 import './styles/Delete.css';
