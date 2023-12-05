@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { getAuth, signOut } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
 const ShowProducts = () => {
-  
+  const auth = getAuth();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loggedOut, setLoggedOut] = useState(false);
@@ -35,7 +35,8 @@ const ShowProducts = () => {
   const handleLogout = async () => {
     try {
       setLoading(true);
-     
+      await signOut(auth);
+      // Atraso de 1 minuto (60.000 milissegundos) antes de definir loggedOut como true
       setTimeout(() => {
         setLoggedOut(true);
       }, 60000);
@@ -43,7 +44,7 @@ const ShowProducts = () => {
       console.error("Erro ao fazer logout:", error);
       alert("Erro ao fazer logout. Consulte o console para obter detalhes.");
     } finally {
-      
+      // Simulando um atraso de 1 segundo antes de parar de mostrar "Carregando..."
       setTimeout(() => {
         setLoading(false);
       }, 1000);
@@ -56,21 +57,20 @@ const ShowProducts = () => {
       {loading && <p>Carregando...</p>}
       {!loading && (
         <>
-          <button onClick={handleLogout}>Logout</button>
           <div className="product-list-hor">
             {products.map((product) => (
               <Card className="custom-card">
                 <Card.Body>
                   <div className="product-list-show">
-                    <label>Nome:</label>
+                    <h6>Nome:</h6>
                     {product.name}
                   </div>
                   <div className="product-list-show">
-                    <label>Preço:</label>
-                    {product.price}
+                    <h6>Preço:</h6>
+                    R${product.price}
                   </div>
                   <div className="product-list-show">
-                    <label>Descrição:</label>
+                    <h6>Descrição:</h6>
                     {product.description}
                   </div>
                 </Card.Body>
@@ -79,6 +79,7 @@ const ShowProducts = () => {
           </div>
         </>
       )}
+      <button onClick={handleLogout}>Logout</button>
       {loggedOut && <Navigate to="/" />}
     </div>
   );

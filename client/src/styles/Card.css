@@ -7,6 +7,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 38rem;
+}
+.card-body{
+  height: 20%;
+  width: 100%;
+}
+h6{
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 
