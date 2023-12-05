@@ -1,7 +1,5 @@
-// components/LoginCadastro.js
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -13,6 +11,7 @@ const LoginCadastro = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate(); // Adicionado o hook useNavigate
 
   const handleToggle = () => {
     setIsLogin(!isLogin);
@@ -31,6 +30,10 @@ const LoginCadastro = () => {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("Cadastro bem-sucedido! Agora você pode fazer login.");
       }
+
+      // Após login ou cadastro bem-sucedido, redirecione para a rota /show
+      navigate("/show");
+      
     } catch (error) {
       console.error("Erro:", error);
 
