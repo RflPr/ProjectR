@@ -38,11 +38,6 @@ app.put('/edit-product/:id', async (req, res) => {
     console.log('Rota de edição alcançada');
     const productId = req.params.id;
     const { newProductName, newProductPrice, newProductDescription } = req.body;
-    console.log('ID do produto:', productId);
-    console.log('Novo nome do produto:', newProductName);
-    console.log('Novo preço do produto:', newProductPrice);
-    console.log('Nova descrição do produto:', newProductDescription);
-
     await Product.update(
       {
         name: newProductName,

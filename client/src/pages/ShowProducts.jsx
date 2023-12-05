@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import { getAuth, signOut } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 import { Card } from "react-bootstrap";
@@ -36,16 +35,18 @@ const ShowProducts = () => {
   const handleLogout = async () => {
     try {
       setLoading(true);
-      await signOut(auth);
-      setLoggedOut(true);
+     
+      setTimeout(() => {
+        setLoggedOut(true);
+      }, 60000);
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
       alert("Erro ao fazer logout. Consulte o console para obter detalhes.");
     } finally {
-      // Simulando um atraso de 1 segundo antes de parar de mostrar "Carregando..."
+      
       setTimeout(() => {
         setLoading(false);
-      }, 5000);
+      }, 1000);
     }
   };
 
